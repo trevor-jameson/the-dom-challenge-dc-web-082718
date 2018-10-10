@@ -3,6 +3,7 @@ let plusButton = document.querySelector("button#\\+")
 let minusButton = document.querySelector("#\\-")
 let likeButton = document.querySelector("#\\<3")
 let pauseButton = document.querySelector("#pause")
+let likesList = document.querySelector(".likes")
 const likes = {}
 
 pauseButton.className = ("running")
@@ -31,6 +32,10 @@ let clickLike = () => {
     likes[counter.innerText] += 1
   } else {
     likes[counter.innerText] = 1
+  }
+  likesList.innerHTML = "";
+  for (const key in likes) {
+    likesList.innerHTML += `<li>${key}: ${likes[key]}</li>`
   }
 }
 
@@ -63,3 +68,28 @@ let changePause = () => {
 pauseButton.addEventListener('click', changePause)
 
 // 5. As a user I can leave comments on my gameplay, such as "Wow, what a fun game this is"
+let commentList = document.querySelector('#list')
+let commentForm = document.querySelector('#comment-form')
+let commentSubmit = document.querySelector('#comment-form #submit')
+
+let createComment = (e) => {
+  let commentFormValue = document.querySelector('#comment-form[value]')
+  e.preventDefault()
+  debugger
+  commentList.innerHTML += `<li>${}</li>`
+  // Create comment from comment form value and reset the form fields without
+  // reloading the page
+}
+
+commentSubmit.addEventListener('click', createComment)
+
+
+
+
+
+
+
+
+
+
+//comment
